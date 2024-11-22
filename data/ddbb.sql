@@ -1,4 +1,4 @@
-if not exists create database taskoplan;
+create database taskoplan;
 use taskoplan;
 
 create table usuario (
