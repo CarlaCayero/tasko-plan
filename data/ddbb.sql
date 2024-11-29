@@ -31,9 +31,9 @@ create table tarea (
     fecha_fin date,
     descripcion varchar (255) not null,
     id_usuario int,
-    id_proyecto int,
-    id_tipo int,
-    id_estado int,
+    id_proyecto int not null,
+    id_tipo int not null,
+    id_estado int not null,
     
 	constraint fk_tarea_usuario foreign key (id_usuario) references usuario (id_usuario),
     constraint fk_tarea_proyecto foreign key (id_proyecto) references proyecto (id_proyecto),
@@ -42,9 +42,9 @@ create table tarea (
 );
 
 create table participar (
-	id_usuario int,
-    id_proyecto int,
-    id_rol int,
+	id_usuario int not null,
+    id_proyecto int not null,
+    id_rol int not null,
     
     constraint pk_usuarios_proyecto primary key (id_usuario, id_proyecto),
     constraint fk_participar_usuario foreign key (id_usuario) references usuario (id_usuario),

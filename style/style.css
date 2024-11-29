@@ -1,0 +1,66 @@
+body{
+    font-family: 'poppins', sans-serif;
+    background-color: #d8ccbc;
+}
+
+/* ------------------ imagenes index ----------------- */
+.img-index{
+    margin-top: 15px;
+    width: 500px;
+    height: 300px;
+}
+
+.img-avatar{
+    margin-top: 15px;
+    width: 500px;
+    height: 500px;
+}
+/* --------------------- H  y P -------------------------- */
+h1{
+    font-family: 'Lobster Two', cursive;
+    font-size: 40px;
+}
+
+.centrar-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    height: 100%;
+}
+
+.p-large{
+    font-family: 'poppins', sans-serif;
+    font-size: 30px;
+}
+
+/* -------------------  NAVBAR  ----------------------- */
+.navbar{
+    background-color: #b8a38e !important;
+    
+}
+.navbar-brand{
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+/* ---------------------   BOTONES  -------------------- */
+#btn-inicia-sesion{
+    background-color: #d4e0ca;
+    color: #000000;
+    border: 4px solid #ffffff;
+}
+
+#btn-registro{
+    margin-top: -140px;
+    background-color: #d8c1d1;
+    color: #000000;
+    border: 4px solid #ffffff;
+}
+
+#btn-inicia-sesion:hover, #btn-registro:hover{
+    background-color: #ffffff; 
+    color: #000000;
+    
+}
+
+
