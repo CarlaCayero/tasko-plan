@@ -2,6 +2,8 @@
 
 include_once '../php-librarys/db.php'
 
+
+// Crea un proyecto y cambia el rol del usar de 3 a 2
 function crearProyecto($nombre, $descripcion, $id_usuario) {
     try {
         $conexion = openDb();
