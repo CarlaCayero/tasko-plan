@@ -1,0 +1,14 @@
+Esta carpeta es para controladores. Los controladores gestionan la lógica entre la vista (si existe) y los modelos de datos.
+
+Responsabilidades:
+
+Recibir solicitudes del cliente (API o formularios).
+Ejecutar lógica específica del negocio.
+Llamar a funciones en los modelos para acceder a la base de datos.
+Responder con JSON u otro formato según corresponda.
+
+Ficheros:
+
+taskoController.php: Para manejar tareas (crear, actualizar, eliminar, mover entre columnas).
+userController.php: Para manejar usuarios (inicio de sesión, registro, etc.).
+?? boardController.php: Para gestionar tableros de Kanban (crear, compartir, eliminar).
