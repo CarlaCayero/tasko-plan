@@ -9,7 +9,7 @@ function openDb()
 
     $host = "mysql_xampp";
     $user = "root";
-    $password = "";
+    $password = "mysql";
     $dbname = "taskoplan";
 
     try{

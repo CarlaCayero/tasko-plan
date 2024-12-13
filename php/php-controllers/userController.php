@@ -21,7 +21,7 @@ function registro($nombre, $contrasenya, $mail)
         $hashedPassword = password_hash($contrasenya, PASSWORD_DEFAULT);
 
         // Insertar el nuevo usuario en la base de datos
-        $sentenciaText = "INSERT INTO usuario (nombre, contrasenya,email, id_rol) VALUES (:nombre, :contrasenya, :mail, 3)";
+        $sentenciaText = "INSERT INTO usuario (nombre, contrasenya, mail) VALUES (:nombre, :contrasenya, :mail)";
         $stmt = $conexion->prepare($sentenciaText);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':contrasenya', $hashedPassword);
@@ -45,12 +45,11 @@ function modificarUsuario($id_usuario, $nombre, $contrasenya, $id_rol)
 
     try {
         $conexion = openDb();
-        $sentenciaText = "UPDATE usuario SET nombre = :nombre, contrasenya = :contrasenya, id_rol = :id_rol WHERE id_usuario = :id_usuario";
+        $sentenciaText = "UPDATE usuario SET nombre = :nombre, contrasenya = :contrasenya WHERE id_usuario = :id_usuario";
 
         $stmt = $conexion->prepare($sentenciaText);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':contrasenya', $contrasenya);
-        $stmt->bindParam(':id_rol', $id_rol);
         $stmt->bindParam(':id_usuario', $id_usuario);
 
         $stmt->execute();
