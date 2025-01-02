@@ -5,17 +5,24 @@ body{
 
 /* ------------------ imagenes index ----------------- */
 .img-index{
-    margin-top: 15px;
+    margin-top: 100px;
     width: 500px;
     height: 300px;
 }
 
 .img-avatar{
     margin-top: 15px;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
 }
-/* --------------------- H  y P -------------------------- */
+
+.img-logo{
+    margin-right: 10px;
+    width: 55px;
+    height: 55px;
+}
+
+/* --------------------- H y P -------------------------- */
 h1{
     font-family: 'Lobster Two', cursive;
     font-size: 40px;
@@ -36,31 +43,37 @@ h1{
 /* -------------------  NAVBAR  ----------------------- */
 .navbar{
     background-color: #b8a38e !important;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
     
 }
 .navbar-brand{
     margin-left: 15px;
     font-weight: bold;
+    display: flex;
 }
 
 /* ---------------------   BOTONES  -------------------- */
-#btn-inicia-sesion{
-    background-color: #d4e0ca;
+.btn-standard{
     color: #000000;
     border: 4px solid #ffffff;
+    font-weight: bold;
+}
+
+#btn-inicia-sesion{
+    background-color: #d4e0ca;
 }
 
 #btn-registro{
-    margin-top: -140px;
     background-color: #d8c1d1;
-    color: #000000;
-    border: 4px solid #ffffff;
 }
 
 #btn-inicia-sesion:hover, #btn-registro:hover{
     background-color: #ffffff; 
     color: #000000;
-    
 }
-
-
+.btn-rrss:hover{
+    border: 4px solid #ffffff;
+    background-color: #b8a38e;
+}
