@@ -3,7 +3,7 @@ body{
     background-color: #d8ccbc;
 }
 
-/* ------------------ imagenes index ----------------- */
+/* ------------------ imagenes ----------------- */
 .img-index{
     margin-top: 100px;
     width: 500px;
@@ -17,10 +17,16 @@ body{
 }
 
 .img-logo{
-    margin-right: 10px;
+    margin-left: 0;
     width: 55px;
     height: 55px;
 }
+
+.img-logo-xl{
+    max-width: 70%;
+    height: auto;
+}
+
 
 /* --------------------- H y P -------------------------- */
 h1{
@@ -69,7 +75,11 @@ h1{
     background-color: #d8c1d1;
 }
 
-#btn-inicia-sesion:hover, #btn-registro:hover{
+#btn-aceptar{
+    background-color: #bfccdc;
+}
+
+#btn-inicia-sesion:hover, #btn-registro:hover, #btn-aceptar:hover{
     background-color: #ffffff; 
     color: #000000;
 }

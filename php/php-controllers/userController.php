@@ -1,5 +1,5 @@
 <?php
-include_once '../php-librarys/db.php'
+include_once '../php-librarys/db.php';
 
 // Registra a nuevos usuarios
 function registro($nombre, $contrasenya, $mail)
@@ -12,6 +12,11 @@ function registro($nombre, $contrasenya, $mail)
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':mail', $mail);
         $stmt->execute();
+
+        if ($stmt->errorCode() != '00000') {
+            print_r($stmt->errorInfo()); // Muestra detalles del error
+            return false;
+        }
 
         if ($stmt->rowCount() > 0) {
             return false; // Usuario o correo ya registrado
@@ -29,6 +34,7 @@ function registro($nombre, $contrasenya, $mail)
 
         if (!$stmt->execute()) {
             print_r($stmt->errorInfo()); // Mostrar errores en caso de fallo
+            return false;
         }
 
         $conexion = closeDb();
