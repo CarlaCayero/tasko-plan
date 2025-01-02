@@ -7,7 +7,7 @@ function openDb()
    // $password = "1Q2w3e4r5t.";
    // $dbname = "b33_37391784_taskoplan";
 
-    $host = "mysql_xampp";
+    $host = "localhost";
     $user = "root";
     $password = "mysql";
     $dbname = "taskoplan";
