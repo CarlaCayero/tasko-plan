@@ -79,7 +79,11 @@ h1{
     background-color: #bfccdc;
 }
 
-#btn-inicia-sesion:hover, #btn-registro:hover, #btn-aceptar:hover{
+#btn-login{
+    background-color: #f1dab1;
+}
+
+#btn-inicia-sesion:hover, #btn-registro:hover, #btn-aceptar:hover, #btn-login:hover{
     background-color: #ffffff; 
     color: #000000;
 }

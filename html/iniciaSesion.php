@@ -12,7 +12,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/style.css">
-    <title>TaskoPlan: Registro</title>
+    <title>TaskoPlan: Inicio de sesión</title>
 </head>
 <body>
     <header>
@@ -33,25 +33,21 @@ session_start();
 
                 <div class="col-md-6">
                     <div class="container text-center mt-3">
-                        <h1 class="fs-3">Regístrate para empezar a planificar con Tasko Plan</h1>
+                        <h1 class="fs-3">Inicia sesión para organizar tus proyectos</h1>
                         <hr>
                     </div>
                     <!-- El formulario que envía datos a registro.php -->
-                    <form method="POST" action="../php/php-controllers/procesarRegistro.php">
+                    <form method="POST" action="../php/php-controllers/login.php">
                         <div class="mb-3">
-                            <label for="username" class="form-label">Nombre de Usuario *</label>
+                            <label for="username" class="form-label">Nombre de Usuario</label>
                             <input type="text" class="form-control" id="username" name="username" placeholder="Introduce tu nombre de usuario" required>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Correo Electrónico *</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Introduce tu correo electrónico" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Contraseña *</label>
+                            <label for="password" class="form-label">Contraseña</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Introduce tu contraseña" required>
                         </div>
                         <!-- Asegúrate de que el botón tiene el estilo adecuado -->
-                        <button type="submit" class="btn btn-standard" id="btn-aceptar">Aceptar</button>
+                        <button type="submit" class="btn btn-standard" id="btn-login">Iniciar sesión</button>
                     </form>
                 </div>
             </div>

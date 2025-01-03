@@ -157,4 +157,27 @@ function verificarUsuario($nombre, $contrasenya)
     }
 }
 
+// Obtiene los roles de un usuario en todos los proyectos
+function obtenerRolesUsuario($id_usuario) 
+{
+    try {
+        $conexion = openDb();
+        $stmt = $conexion->prepare("
+            SELECT p.id_proyecto, p.nombre AS proyecto, r.id_rol, r.nombre AS rol
+            FROM participar pa
+            JOIN proyecto p ON pa.id_proyecto = p.id_proyecto
+            JOIN rol r ON pa.id_rol = r.id_rol
+            WHERE pa.id_usuario = :id_usuario
+        ");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+
+        $roles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $conexion = closeDb();
+
+        return $roles;
+    } catch (PDOException $e) {
+        return errorMessage($e);
+    }
+}
 ?>
