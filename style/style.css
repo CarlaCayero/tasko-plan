@@ -3,6 +3,11 @@ body{
     background-color: #d8ccbc;
 }
 
+.modal-title, .card-title{
+    font-family: 'Lobster Two', cursive;
+    font-size: 30px;
+}
+
 /* ------------------ imagenes ----------------- */
 .img-index{
     margin-top: 100px;
@@ -67,7 +72,7 @@ h1{
     font-weight: bold;
 }
 
-#btn-inicia-sesion{
+#btn-inicia-sesion, #btn-guardar-p{
     background-color: #d4e0ca;
 }
 
@@ -75,15 +80,15 @@ h1{
     background-color: #d8c1d1;
 }
 
-#btn-aceptar{
+#btn-aceptar, #btn-add-p{
     background-color: #bfccdc;
 }
 
-#btn-login{
+#btn-login, #g-tarea{
     background-color: #f1dab1;
 }
 
-#btn-inicia-sesion:hover, #btn-registro:hover, #btn-aceptar:hover, #btn-login:hover{
+#btn-inicia-sesion:hover, #btn-registro:hover, #btn-aceptar:hover, #btn-login:hover, #btn-add:hover, #g-tarea:hover, #btn-guardar-p{
     background-color: #ffffff; 
     color: #000000;
 }

@@ -1,32 +1,80 @@
 <?php
+include_once '../php/php-librarys/db.php';
+session_start();
 
-include_once '../php-librarys/db.php'
-
-
-// Crea un proyecto y cambia el rol del usar de 3 a 2
-function crearProyecto($nombre, $descripcion, $id_usuario) {
+// Crear un proyecto
+function crearProyecto($id_usuario, $nombre, $descripcion)
+{
     try {
         $conexion = openDb();
 
-        // 1. Insertar el proyecto en la tabla `proyecto`
-        $stmt = $conexion->prepare("INSERT INTO proyecto (nombre, descripcion) VALUES (:nombre, :descripcion)");
-        $stmt->bindParam(':nombre', $nombre);
-        $stmt->bindParam(':descripcion', $descripcion);
-        $stmt->execute();
+        // Crear el proyecto
+        $stmtProyecto = $conexion->prepare("
+            INSERT INTO proyecto (nombre, descripcion) VALUES (:nombre, :descripcion)
+        ");
+        $stmtProyecto->bindParam(':nombre', $nombre);
+        $stmtProyecto->bindParam(':descripcion', $descripcion);
+        $stmtProyecto->execute();
 
-        // 2. Obtener el ID del proyecto recién creado
         $id_proyecto = $conexion->lastInsertId();
 
-        // 3. Insertar al usuario como Admin (id_rol = 2) en la tabla `participar`
-        $stmt = $conexion->prepare("INSERT INTO participar (id_usuario, id_proyecto, id_rol) VALUES (:id_usuario, :id_proyecto, 2)");
+        // Asignar al usuario como administrador del proyecto
+        $stmtRol = $conexion->prepare("
+            INSERT INTO participar (id_usuario, id_proyecto, id_rol) VALUES (:id_usuario, :id_proyecto, 1)
+        "); // Suponiendo que el rol "administrador" tiene id_rol = 1
+        $stmtRol->bindParam(':id_usuario', $id_usuario);
+        $stmtRol->bindParam(':id_proyecto', $id_proyecto);
+        $stmtRol->execute();
+
+        $conexion = closeDb();
+        return true;
+    } catch (PDOException $e) {
+        return errorMessage($e);
+    }
+}
+
+// Obtener los proyectos de un usuario donde es administrador
+function obtenerProyectosPorUsuario($id_usuario)
+{
+    try {
+        $conexion = openDb();
+        $stmt = $conexion->prepare("
+            SELECT p.* 
+            FROM proyecto p
+            JOIN participar pa ON p.id_proyecto = pa.id_proyecto
+            WHERE pa.id_usuario = :id_usuario AND pa.id_rol = 1
+        ");
         $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+
+        $proyectos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $conexion = closeDb();
+        return $proyectos;
+    } catch (PDOException $e) {
+        return errorMessage($e);
+    }
+}
+
+// Obtener los usuarios de un proyecto
+function obtenerUsuariosPorProyecto($id_proyecto)
+{
+    try {
+        $conexion = openDb();
+        $stmt = $conexion->prepare("
+            SELECT u.id_usuario, u.nombre, r.nombre AS rol
+            FROM participar pa
+            JOIN usuario u ON pa.id_usuario = u.id_usuario
+            JOIN rol r ON pa.id_rol = r.id_rol
+            WHERE pa.id_proyecto = :id_proyecto
+        ");
         $stmt->bindParam(':id_proyecto', $id_proyecto);
         $stmt->execute();
 
-        closeDb();
-        return $id_proyecto; // Retornar el ID del proyecto creado
-
+        $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $conexion = closeDb();
+        return $usuarios;
     } catch (PDOException $e) {
-        return errorMessage($e); // Manejar errores
+        return errorMessage($e);
     }
 }
+?>

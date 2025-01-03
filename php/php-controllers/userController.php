@@ -1,5 +1,5 @@
 <?php
-include_once '../php-librarys/db.php';
+include_once '../php/php-librarys/db.php';
 
 // Registra a nuevos usuarios
 function registro($nombre, $contrasenya, $mail)

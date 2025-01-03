@@ -1,7 +1,7 @@
 <?php
-session_start();
 include_once '../php-librarys/db.php'; // Conexión a la base de datos
 include_once './userController.php';  // Funciones de usuario
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener credenciales del formulario
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['roles'] = $roles;
 
         // Redirigir a la página principal
-        header('Location: ../../index.html');
+        header('Location: ../../html/proyectos.php');
         exit;
     } else {
         // Usuario o contraseña incorrectos
